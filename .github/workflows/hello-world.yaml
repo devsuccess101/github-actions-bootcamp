@@ -1,4 +1,4 @@
-name: hello-world
+name: hello-world 
 
 on: [push, pull_request]
 
@@ -7,4 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: echo "Hello, World!"
+      - env:
+          NAME: ${{ secrets.NAME }}
+        run: echo "Hello, $NAME!"
